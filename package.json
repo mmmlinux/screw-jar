@@ -1,0 +1,17 @@
+{
+  "name": "screw-jar",
+  "version": "1.0.0",
+  "description": "Physics simulation of pouring screws into a bin to see how many fit",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "test": "node tests/binstl.mjs && node tests/mix.mjs"
+  },
+  "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.20.0",
+    "@dimforge/rapier3d-simd-compat": "^0.20.0",
+    "esbuild": "^0.28.2",
+    "three": "^0.186.0"
+  }
+}

@@ -1,0 +1,11 @@
+import R from "@dimforge/rapier3d-compat";
+import { ScrewSim, DEFAULTS, autoFill, mixShape } from "../src/sim.js";
+import { builtinShape } from "../src/parts.js";
+await R.init();
+const vs = [builtinShape(R,"pan",{headD:5.6,headH:2.4,shankD:3,len:5}), builtinShape(R,"nut",{flats:5.5,height:2.4,holeD:3})];
+const shape = mixShape(vs, [3,1]);
+const sim = new ScrewSim(R, { ...DEFAULTS, container: { L: 40, W: 20, H: 20, wall: 3 } }, shape);
+const g = autoFill(sim, 3); let r;
+while (!(r = g.next()).done) for (let i = 0; i < 10; i++) sim.step();
+const c=[0,0]; for (const x of sim.classify()) if (x.inside) c[x.sc.v]++;
+console.log("inside", r.value, "by variant", c);

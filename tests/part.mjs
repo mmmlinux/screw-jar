@@ -1,0 +1,14 @@
+const R = (await import(process.env.RAPIER || "@dimforge/rapier3d-compat")).default;
+import { ScrewSim, DEFAULTS, autoFill, planSection } from "../src/sim.js";
+import { builtinShape, partDefaults, BINS } from "../src/parts.js";
+await R.init();
+const [id, binId, maxSim] = process.argv.slice(2);
+const bin = BINS.find(b => b.id === binId);
+const real = bin && bin.L ? { L: bin.L, W: bin.W, H: bin.H, wall: 3 } : { ...DEFAULTS.container };
+const shape = builtinShape(R, id, partDefaults(id));
+const sec = planSection(real, shape, +(maxSim || 700)); const vr = sec.volumeRatio || 1;
+const sim = new ScrewSim(R, { ...DEFAULTS, freeze: process.env.FREEZE !== "0", container: sec.container, shakeTime: +(process.env.SHAKE ?? 1) }, shape);
+const g = autoFill(sim, 3); let r; const t0 = performance.now();
+while (!(r = g.next()).done) for (let i = 0; i < 10; i++) sim.step();
+const est = Math.round(r.value * sec.ratio);
+console.log(`${id} in ${binId || "40x20x20"}: sim box ${sec.container.L}x${sec.container.W}x${sec.container.H} ratio ${sec.ratio.toFixed(2)} inside ${r.value} => ${est} (volume-only ${Math.round(r.value*vr)})  pieces ${shape.pieces} vol ${shape.volume.toFixed(1)} reach ${shape.reach.toFixed(2)} packing ${(r.value*shape.volume/(sec.container.L*sec.container.W*sec.container.H)*100).toFixed(0)}% poured ${sim.poured} ${((performance.now()-t0)/1000).toFixed(0)}s`);
