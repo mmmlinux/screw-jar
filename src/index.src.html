@@ -64,6 +64,7 @@ body { background: var(--bg); color: var(--ink); font: 400 16px/1.5 var(--body);
 .panel { background: var(--panel); border-left: 1px solid var(--line); padding: 24px 22px 32px; overflow-y: auto; max-height: 100vh; }
 h1 { font: 600 30px/1.1 var(--cond); margin: 0 0 6px; }
 .lede { color: var(--muted); margin: 0 0 20px; font-size: 15px; max-width: 60ch; }
+.lede a { color: inherit; }
 button, select, input { font: inherit; color: inherit; }
 button { cursor: pointer; border-radius: 6px; padding: 9px 14px; border: 1px solid var(--line); background: transparent; font-weight: 500; }
 button:hover:not(:disabled) { border-color: var(--ink); }
@@ -154,7 +155,7 @@ input, select { background: var(--bg); border: 1px solid var(--line); border-rad
 
   <aside class="panel">
     <h1>Screw Jar</h1>
-    <p class="lede">Pours rigid-body parts into an open box and counts how many end up entirely inside it. Pour one kind of part or a mix: build the list under Parts to pour, or fill it with random sizes from the screw jar. Choose the bin under Add parts and settings. Drag to orbit, pinch or scroll to zoom.</p>
+    <p class="lede">Pours rigid-body parts into an open box and counts how many end up entirely inside it. Pour one kind of part or a mix: build the list under Parts to pour, or fill it with random sizes from the screw jar. Choose the bin under Add parts and settings. Drag to orbit, pinch or scroll to zoom. Source on <a href="https://github.com/mmmlinux/screw-jar">GitHub</a>.</p>
 
     <button id="auto">Auto fill</button>
     <p class="help">Pours until heaped, shakes to settle, scrapes off anything above the rim, then tops up and repeats.</p>

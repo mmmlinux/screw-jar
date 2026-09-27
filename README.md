@@ -1,5 +1,7 @@
 # Screw Jar
 
+**Try it:** <https://mmmlinux.github.io/screw-jar/>
+
 Pours rigid-body parts into a bin and counts how many end up entirely inside it. It runs in the browser: [Rapier](https://rapier.rs) (WebAssembly) does the physics and [three.js](https://threejs.org) draws the scene.
 
 ## What it does
@@ -14,7 +16,7 @@ Pours rigid-body parts into a bin and counts how many end up entirely inside it.
 
 ## Using it
 
-Open `index.html` in a browser. It's one self-contained file and works offline, apart from the web font.
+Open <https://mmmlinux.github.io/screw-jar/>, or open `index.html` in a browser. It's one self-contained file and works offline, apart from the web font.
 
 ## Building
 
@@ -30,4 +32,4 @@ The `tests/` folder has more checks and benchmarks. Run them with `node tests/<n
 
 ## Publishing on GitHub Pages
 
-In the repository's **Settings → Pages**, set **Source** to *Deploy from a branch*, choose `main` and `/ (root)`, and save. The site goes live at `https://<user>.github.io/<repo>/`. After changing anything in `src/`, run `npm run build` and commit the new `index.html`.
+In the repository's **Settings → Pages**, set **Source** to *Deploy from a branch*, choose `main` and `/ (root)`, and save. The site goes live at <https://mmmlinux.github.io/screw-jar/>. After changing anything in `src/`, run `npm run build` and commit the new `index.html`.
