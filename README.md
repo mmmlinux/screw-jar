@@ -14,6 +14,12 @@ Pours rigid-body parts into a bin and counts how many end up entirely inside it.
 - **Auto fill:** pours until heaped, shakes, strikes off anything above the rim and tops up. Bins too big to fill are part-filled with a set number of parts, and the page reports how high they reach.
 - **Units:** sizes can be entered in mm or inches.
 
+## Reviews
+
+> "this is fucking brain damaged lmao"
+>
+> — William Osman
+
 ## Using it
 
 Open <https://mmmlinux.github.io/screw-jar/>, or open `index.html` in a browser. It's one self-contained file and works offline, apart from the web font.
